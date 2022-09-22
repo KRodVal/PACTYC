@@ -12,16 +12,33 @@ import com.nosequeponerxd.app.entity.model.AppUser;
 public class AppUserService implements IAppUserService {
 	
 	@Autowired
-	IAppUserDao appUserDao;
+	private IAppUserDao appUserDao;
+	
+	@Override
+	public AppUser get(long id) {
+		return null;
+	}
 
 	@Override
 	public List<AppUser> getAll() {
-		return (List<AppUser>) appUserDao.findAll();
+		return null;
 	}
 
 	@Override
-	public AppUser getOne(long id) {
-		return appUserDao.findById(id).get();
+	public void post(AppUser appuser) {
+		
 	}
+	
+	@Override
+	public void put(AppUser appuser, long id) {
+		
+	}
+
+	@Override
+	public void delete(long id) {
+		
+	}
+	
+	
 
 }

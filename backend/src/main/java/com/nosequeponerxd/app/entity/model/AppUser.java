@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "app_user")
+@Table(name = "appuser")
 public class AppUser implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -21,11 +21,13 @@ public class AppUser implements Serializable {
 	String name, surname;
 	
 	public AppUser() {
-		super();
+		
 	}
 	
 	public AppUser(String name, String surname) {
-		
+		super();
+		this.name = name;
+		this.surname = surname;
 	}
 
 	public String getName() {
