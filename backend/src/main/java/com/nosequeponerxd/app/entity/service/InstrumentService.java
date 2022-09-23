@@ -21,19 +21,16 @@ public class InstrumentService implements IInstrumentService {
 
 	@Override
 	public List<Instrument> getAll() {
-		// TODO Auto-generated method stub
 		return (List<Instrument>) instrumentDao.findAll();
 	}
 
 	@Override
 	public void post(Instrument instrument) {
-		// TODO Auto-generated method stub
 		instrumentDao.save(instrument);
 	}
 
 	@Override
 	public void put(Instrument instrument, long id) {
-		// TODO Auto-generated method stub
 		instrumentDao.findById(id).ifPresent((x)->{
 			instrument.setId(id);
 			instrumentDao.save(instrument);
@@ -42,7 +39,6 @@ public class InstrumentService implements IInstrumentService {
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
 		instrumentDao.deleteById(id);
 	}
 	
