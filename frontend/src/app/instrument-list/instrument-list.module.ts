@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { InstrumentListPageRoutingModule } from './instrument-list-routing.module';
 
 import { InstrumentListPage } from './instrument-list.page';
+import { CardComponent } from '../components/card/card.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InstrumentListPageRoutingModule
+    InstrumentListPageRoutingModule,
+    
   ],
-  declarations: [InstrumentListPage]
+  declarations: [InstrumentListPage,CardComponent]
 })
 export class InstrumentListPageModule {}
