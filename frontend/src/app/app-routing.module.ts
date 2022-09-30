@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'instrument-list',
+    loadChildren: () => import('./instrument-list/instrument-list.module').then( m => m.InstrumentListPageModule)
   },
+
 ];
 
 @NgModule({
