@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InstrumentsService } from '../services/instruments.service';
 
 @Component({
   selector: 'app-instrument-list',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstrumentListPage implements OnInit {
 
-  constructor() { }
+  instruments: any = [];
+
+  constructor(private instrumentService: InstrumentsService) { }
 
   ngOnInit() {
+    this.getAllInstruments();
   }
 
+  getAllInstruments() {
+    this.instrumentService.getAllInstruments().subscribe(response => { this.instruments = response });
+  }
 }

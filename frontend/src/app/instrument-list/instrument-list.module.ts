@@ -15,7 +15,6 @@ import { CardComponent } from '../components/card/card.component';
     FormsModule,
     IonicModule,
     InstrumentListPageRoutingModule,
-    
   ],
   declarations: [InstrumentListPage,CardComponent]
 })

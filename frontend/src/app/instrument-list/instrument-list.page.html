@@ -5,5 +5,9 @@
 </ion-header>
 
 <ion-content>
-  <app-card></app-card>
+  <ion-list *ngFor="let i of instruments">
+    <ion-item>
+      <app-card [id]="i.id" [model]="i.model" [brand]="i.brand"></app-card>
+    </ion-item>
+  </ion-list>
 </ion-content>
