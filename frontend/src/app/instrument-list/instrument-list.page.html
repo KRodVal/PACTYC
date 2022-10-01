@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de instrumentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let i of instruments">
+    <ion-item>
+      <app-card [id]="i.id" [model]="i.model" [brand]="i.brand"></app-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
