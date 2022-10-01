@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'instrument-list',
     loadChildren: () => import('./instrument-list/instrument-list.module').then( m => m.InstrumentListPageModule)
   },
+  {
+    path: 'instrument-edit',
+    loadChildren: () => import('./instrument-edit/instrument-edit.module').then( m => m.InstrumentEditPageModule)
+  },
 
 ];
 
