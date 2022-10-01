@@ -3,6 +3,7 @@
 }
 
 .cardright {
+    margin-left: 1em;
     padding: 2em;
     display: block;
     margin: auto;
@@ -13,9 +14,11 @@
 
 }
 
-// ion-card {
-//     min-width: 100%;
-// }
+ion-card {
+    display: block;
+    margin: auto;
+    width: 100%;
+}
 
 ion-card-header img {
     height: 10em;
