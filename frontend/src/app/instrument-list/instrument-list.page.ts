@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InstrumentsService } from '../services/instruments.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-instrument-list',
@@ -13,10 +14,18 @@ export class InstrumentListPage implements OnInit {
   constructor(private instrumentService: InstrumentsService) { }
 
   ngOnInit() {
-    this.getAllInstruments();
+    
   }
 
-  getAllInstruments() {
+  ionViewDidEnter() {
     this.instrumentService.getAllInstruments().subscribe(response => { this.instruments = response });
+  }
+
+  removeInstrument(instrument) {
+    if (window.confirm('Are you sure?')) {
+      this.instrumentService.deleteInstrument(instrument.id).subscribe(() => {
+        this.ionViewDidEnter();
+      })
+    }
   }
 }

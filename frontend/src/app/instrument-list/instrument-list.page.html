@@ -6,8 +6,20 @@
 
 <ion-content>
   <ion-list *ngFor="let i of instruments">
-    <ion-item>
-      <app-card [id]="i.id" [model]="i.model" [brand]="i.brand"></app-card>
-    </ion-item>
+    <ion-card>
+      <ion-card-header class="container">
+        <img src="../../../assets/images/{{i.id}}.jpg" />
+        <div  class="cardRight">
+          <div>
+            <ion-card-subtitle>{{i.brand}}</ion-card-subtitle>
+            <ion-card-title>{{i.model}}</ion-card-title>
+          </div>
+          <div>
+            <ion-button routerLink="/instrument-edit/">Modify</ion-button>
+            <ion-button (click)="removeInstrument(i)">Delete</ion-button>
+          </div>
+        </div>
+      </ion-card-header>
+    </ion-card>
   </ion-list>
 </ion-content>

@@ -1,3 +1,17 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/instrument-list" tab="instrument-list">
+      <ion-icon name="list-outline"></ion-icon>
+      <ion-label>Instruments</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/create" tab="create">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Add</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
