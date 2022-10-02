@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
 
 export class Instrument {
   model: string;
@@ -15,6 +14,7 @@ export class Instrument {
 export class InstrumentsService {
 
   endpoint = 'http://localhost:8080/instruments';
+  tempid;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,7 +23,12 @@ export class InstrumentsService {
   constructor(private httpClient: HttpClient) { }
 
   createInstrument(instrument: Instrument): Observable<any> {
-    return this.httpClient.post<Instrument>(this.endpoint, JSON.stringify(instrument), this.httpOptions)
+    return this.httpClient.post<Instrument>(this.endpoint, JSON.stringify(instrument), {
+      params: {
+        model: instrument.model,
+        brand: instrument.brand
+      }
+    })
   }
 
   getInstrument(id): Observable<Instrument[]> {
@@ -35,7 +40,12 @@ export class InstrumentsService {
   }
 
   updateInstrument(id, instrument: Instrument): Observable<any> {
-    return this.httpClient.put(this.endpoint + '/' + id, JSON.stringify(instrument))
+    return this.httpClient.put(this.endpoint + '/' + id, JSON.stringify(instrument), {
+      params: {
+        model: instrument.model,
+        brand: instrument.brand
+      }
+    })
   }
 
   deleteInstrument(id): Observable<Instrument[]> {

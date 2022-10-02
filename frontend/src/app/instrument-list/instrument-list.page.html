@@ -5,8 +5,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngFor="let i of instruments">
-    <ion-card>
+  <ion-list>
+    <ion-card *ngFor="let i of instruments">
       <ion-card-header class="container">
         <img src="../../../assets/images/{{i.id}}.jpg" />
         <div  class="cardRight">
@@ -15,8 +15,14 @@
             <ion-card-title>{{i.model}}</ion-card-title>
           </div>
           <div>
-            <ion-button routerLink="/instrument-edit/">Modify</ion-button>
-            <ion-button (click)="removeInstrument(i)">Delete</ion-button>
+            <ion-button (click)="passID(i)" [routerLink]="['/update/']">
+              <ion-icon name="create"></ion-icon>
+              Modify
+            </ion-button>
+            <ion-button (click)="removeInstrument(i)">
+              <ion-icon name="trash"></ion-icon>
+              Delete
+            </ion-button>
           </div>
         </div>
       </ion-card-header>

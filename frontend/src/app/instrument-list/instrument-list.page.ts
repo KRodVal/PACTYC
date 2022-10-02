@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InstrumentsService } from '../services/instruments.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UpdatePage } from '../update/update.page';
 
 @Component({
   selector: 'app-instrument-list',
@@ -11,7 +12,10 @@ export class InstrumentListPage implements OnInit {
 
   instruments: any = [];
 
-  constructor(private instrumentService: InstrumentsService) { }
+  constructor(
+    private instrumentService: InstrumentsService,
+    private activatedRoute: ActivatedRoute
+    ) { }
 
   ngOnInit() {
     
@@ -27,5 +31,9 @@ export class InstrumentListPage implements OnInit {
         this.ionViewDidEnter();
       })
     }
+  }
+
+  passID(instrument) {
+    this.instrumentService.tempid = instrument.id;
   }
 }
